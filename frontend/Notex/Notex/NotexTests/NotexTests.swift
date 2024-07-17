@@ -2,13 +2,13 @@
 //  NotexTests.swift
 //  NotexTests
 //
-//  Created by William Richard Astley on 6/22/24.
+//  Created by William Richard Astley on 7/15/24.
 //
 
 import XCTest
 @testable import Notex
 
-class NotexTests: XCTestCase {
+final class NotexTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

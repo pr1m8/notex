@@ -2,12 +2,12 @@
 //  NotexUITestsLaunchTests.swift
 //  NotexUITests
 //
-//  Created by William Richard Astley on 6/22/24.
+//  Created by William Richard Astley on 7/15/24.
 //
 
 import XCTest
 
-class NotexUITestsLaunchTests: XCTestCase {
+final class NotexUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

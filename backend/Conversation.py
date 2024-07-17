@@ -3,7 +3,6 @@ from pdf2image import convert_from_path
 import base64
 import os
 import subprocess
-import tempfile
 import re
 import cv2
 import numpy as np
@@ -24,19 +23,16 @@ logger = logging.getLogger(__name__)
 GPT_COST = {"input_token_cost": 5.0, "output_token_cost": 15.0}
 
 class Conversation:
-    session_id: str
-    messages: List[Dict] = []
-
-    def __init__(self, session_id: str) -> None:
+    def __init__(self, session_id: str, output_dir: str) -> None:
         self.session_id = session_id
-        self.messages = []
-        self.unique_id = str(uuid.uuid4())
-        self.output_dir = os.path.join("uploads", self.unique_id)
-        os.makedirs(self.output_dir, exist_ok=True)
+        self.output_dir = output_dir
+        self.images_dir = os.path.join(self.output_dir, "images")
+        os.makedirs(self.images_dir, exist_ok=True)
         self.start_time = time.time()
         self.total_cost = 0.0
-
-    def preprocess_image(self, image_path):
+        self.messages: List[Dict] = []
+        
+    def preprocess_image(self, image_path: str) -> str:
         logger.info(f"Preprocessing image: {image_path}")
         image = cv2.imread(image_path)
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -47,7 +43,7 @@ class Conversation:
         kernel = np.array([[0, -1, 0], [-1,  5, -1], [0, -1, 0]])
         sharpened = cv2.filter2D(denoised, -1, kernel)
         resized = cv2.resize(sharpened, (0, 0), fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
-        preprocessed_image_path = image_path.replace(".png", "_preprocessed.png")
+        preprocessed_image_path = os.path.join(self.images_dir, os.path.basename(image_path).replace(".png", "_preprocessed.png"))
         cv2.imwrite(preprocessed_image_path, resized)
         return preprocessed_image_path
 
@@ -87,6 +83,8 @@ class Conversation:
             "Definitions, Theorems, Propositions, Problems, etc., should all be stated on the same line they are declared, never escaping a row before that. "
             "Use \\begin{mydefbox} for definitions, \\begin{mythmbox} for theorems, \\begin{myexamplebox} for examples, and \\begin{mypropbox} for propositions."
             "Use align and equation sparingly outside of the boxes above, and in proofs."
+            "Try to use a combination of $,center,equation,and align*"
+            "Use Sections & Subsections for table of contents."
             "You cannot use placeholders for images - try to crop them or recreate them in latex."
             "Do not use \\O"
         )
@@ -103,27 +101,29 @@ class Conversation:
         
 
     def clean_latex_code(self, latex_code: str) -> str:
-        latex_code = re.sub(r'\\documentclass{.*?}', '', latex_code, flags=re.DOTALL)
-        latex_code = re.sub(r'\\usepackage{.*?}', '', latex_code, flags=re.DOTALL)
-        latex_code = re.sub(r'\\begin{document}', '', latex_code, flags=re.DOTALL)
-        latex_code = re.sub(r'\\end{document}', '', latex_code, flags=re.DOTALL)
-        latex_code = re.sub(r'\$\$', r'$', latex_code)
-        latex_code = re.sub(r'\\\[', r'$', latex_code)
-        latex_code = re.sub(r'\\\]', r'$', latex_code)
-        latex_code = re.sub(r'```latex', '', latex_code)
-        latex_code = re.sub(r'```', '', latex_code)
-        latex_code = re.sub(r'\n\s*\n', '\n\n', latex_code)
-        latex_code = re.sub(r'\begin{figure}[H]', r'\begin{figure}', latex_code)
-        #latex_code = re.sub(r'\$\s*([\s\S]+?)\s*\$', r'\\begin{align}\n\1\n\\end{align}', latex_code)
+        patterns = [
+            (r'\\documentclass{.*?}', ''),
+            (r'\\usepackage{.*?}', ''),
+            (r'\\begin{document}', ''),
+            (r'\\end{document}', ''),
+            (r'\$\$', r'$'),
+            (r'\\\[', r'$'),
+            (r'\\\]', r'$'),
+            (r'```latex', ''),
+            (r'```', ''),
+            (r'\n\s*\n', '\n\n'),
+            (r'\begin{figure}[H]', r'\begin{figure}')
+        ]
+        for pattern, replacement in patterns:
+            latex_code = re.sub(pattern, replacement, latex_code, flags=re.DOTALL)
         return latex_code.strip()
 
-    def encode_image_to_base64(self, image_path):
+    def encode_image_to_base64(self, image_path: str) -> str:
         logger.info(f"Encoding image to base64: {image_path}")
         with open(image_path, "rb") as image_file:
             base64_encoded_image = base64.b64encode(image_file.read()).decode('utf-8')
             return f"data:image/png;base64,{base64_encoded_image}"
-    
-    # Cost and logging is wrong
+
     def get_openai_response(self, context, stream=False):
         logger.info("Requesting response from OpenAI.")
         response = client.chat.completions.create(
@@ -171,28 +171,29 @@ class Conversation:
         with open(file_path, 'w') as f:
             f.write(latex_code)
 
-    def convert_latex_to_pdf(self, tex_file: str, output_dir: str):
-        logger.info(f"Compiling LaTeX file {tex_file} to PDF.")
+    def convert_latex_to_pdf(self, tex_file: str):
+        logger.info(f"Compiling LaTeX file {tex_file} to PDF in directory {self.output_dir}.")
         try:
-            result = subprocess.run(['pdflatex', '-interaction=nonstopmode', '-output-directory', output_dir, tex_file],
+            result = subprocess.run(['pdflatex', '-interaction=nonstopmode', '-output-directory', self.output_dir, tex_file],
                                     stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=120)
             logger.info(f"LaTeX compilation stdout: {result.stdout.decode('utf-8', errors='ignore')}")
             logger.error(f"LaTeX compilation stderr: {result.stderr.decode('utf-8', errors='ignore')}")
             if result.returncode != 0:
                 logger.warning(f"LaTeX compilation completed with errors. Return code: {result.returncode}")
-            if not os.path.exists(os.path.join(output_dir, "output.pdf")):
-                raise FileNotFoundError("Compiled PDF not found in temporary directory.")
+            if not os.path.exists(os.path.join(self.output_dir, "output.pdf")):
+                raise FileNotFoundError("Compiled PDF not found in output directory.")
         except subprocess.TimeoutExpired:
             logger.error("LaTeX compilation timed out.")
             raise RuntimeError("LaTeX compilation timed out.")
-
-
+        except Exception as e:
+            logger.error(f"An unexpected error occurred during LaTeX compilation: {e}")
+            raise
 
     def process_pdf(self, pdf_path: str) -> str:
-        pages = convert_from_path(pdf_path)
+        pages = convert_from_path(pdf_path, output_folder=self.output_dir)
         image_paths = []
         for i, page in enumerate(tqdm(pages, desc="Converting PDF pages to images")):
-            image_path = f"temp_page_{i}.png"
+            image_path = os.path.join(self.images_dir, f"temp_page_{i}.png")
             page.save(image_path, "PNG")
             preprocessed_image_path = self.preprocess_image(image_path)
             image_paths.append(preprocessed_image_path)
@@ -205,42 +206,29 @@ class Conversation:
         combined_latex = self.clean_latex_code("\n".join(latex_parts))
         final_latex = latex_preamble_str + combined_latex + latex_end_str
 
-        with tempfile.TemporaryDirectory() as tmpdirname:
-            tex_file = os.path.join(tmpdirname, "output.tex")
-            self.save_latex_to_file(final_latex, tex_file)
+        tex_file = os.path.join(self.output_dir, "output.tex")
+        self.save_latex_to_file(final_latex, tex_file)
 
-            # Save intermediate tex file before compilation
-            intermediate_tex_path = os.path.join(self.output_dir, "intermediate_output.tex")
-            os.replace(tex_file, intermediate_tex_path)
-
+        try:
+            self.convert_latex_to_pdf(tex_file)
+            final_pdf_path = os.path.join(self.output_dir, "output.pdf")
+            if not os.path.exists(final_pdf_path):
+                raise FileNotFoundError("Compiled PDF not found in output directory.")
+        except RuntimeError as e:
+            logger.error(f"LaTeX compilation failed, attempting to fix: {e}")
+            fixed_tex_file = self.fix_latex_errors(tex_file)
             try:
-                self.convert_latex_to_pdf(intermediate_tex_path, tmpdirname)
-                final_pdf_path = os.path.join(self.output_dir, "output.pdf")
-                if not os.path.exists(os.path.join(tmpdirname, "output.pdf")):
-                    raise FileNotFoundError("Compiled PDF not found in temporary directory.")
-                os.replace(os.path.join(tmpdirname, "output.pdf"), final_pdf_path)
-                final_tex_path = os.path.join(self.output_dir, "output.tex")
-                os.replace(intermediate_tex_path, final_tex_path)
+                self.convert_latex_to_pdf(fixed_tex_file)
+                final_pdf_path = os.path.join(self.output_dir, "output_fixed.pdf")
+                if not os.path.exists(final_pdf_path):
+                    raise FileNotFoundError("Compiled PDF not found in output directory after fixing.")
             except RuntimeError as e:
-                logger.error(f"LaTeX compilation failed, attempting to fix: {e}")
-                fixed_tex_file = self.fix_latex_errors(intermediate_tex_path)
-                try:
-                    self.convert_latex_to_pdf(fixed_tex_file, tmpdirname)
-                    final_pdf_path = os.path.join(self.output_dir, "output_fixed.pdf")
-                    if not os.path.exists(os.path.join(tmpdirname, "output.pdf")):
-                        raise FileNotFoundError("Compiled PDF not found in temporary directory after fixing.")
-                    os.replace(os.path.join(tmpdirname, "output.pdf"), final_pdf_path)
-                    final_tex_path = os.path.join(self.output_dir, "output_fixed.tex")
-                    os.replace(fixed_tex_file, final_tex_path)
-                except RuntimeError as e:
-                    logger.error(f"Failed after fixing LaTeX errors: {e}")
-                    raise e
+                logger.error(f"Failed after fixing LaTeX errors: {e}")
+                raise e
 
         return final_pdf_path
 
-
-
-    def fix_latex_errors(self, tex_file: str):
+    def fix_latex_errors(self, tex_file: str) -> str:
         logger.info(f"Fixing LaTeX errors in {tex_file}.")
         with open(tex_file, 'r') as file:
             latex_code = file.read()
@@ -263,7 +251,6 @@ class Conversation:
             fixed_latex += response.choices[0].message.content.strip()
         fixed_latex = self.clean_latex_code(fixed_latex)
 
-        # Add preamble and end document strings
         final_fixed_latex = latex_preamble_str + fixed_latex + latex_end_str
 
         fixed_tex_file = tex_file.replace(".tex", "_fixed.tex")
@@ -272,10 +259,3 @@ class Conversation:
 
         logger.info(f"Fixed LaTeX code saved to {fixed_tex_file}.")
         return fixed_tex_file
-
-
-# Example usage:
-# conv = Conversation(session_id="example_session")
-# final_pdf_path = conv.process_pdf("example.pdf")
-# print(f"Final PDF generated: {final_pdf_path}")
-

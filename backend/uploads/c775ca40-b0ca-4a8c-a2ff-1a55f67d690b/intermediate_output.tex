@@ -1,0 +1,202 @@
+
+\documentclass{article}
+\usepackage[headheight=20pt, margin=1.0in, top=1.2in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, thmtools, tcolorbox, array, graphicx, makeidx, cancel, multirow, fancyhdr, xypic, color, nicefrac, rotating, multicol, caption, subcaption, xcolor, tikz, tikz-3dplot, tikz-cd, pgfplots, import, enumitem, calc, booktabs, wrapfig, siunitx, hyperref,float}
+\hypersetup{colorlinks=true,linkcolor=blue}
+\usepackage[all]{xy}
+\usepackage{esint}
+\setlength{\parindent}{0in}
+\sisetup{per-mode = symbol}
+\usetikzlibrary{calc,arrows,svg.path,decorations.markings,patterns,matrix,3d,fit}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=newest}
+\newtcolorbox{mydefbox}[2][]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#2,#1}
+\newtcolorbox{mythmbox}[2][]{colback=gray!5!white,colframe=gray!75!black,fonttitle=\bfseries,title=#2,#1}
+\newtcolorbox{myexamplebox}[2][]{colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,title=#2,#1}
+\newtcolorbox{mypropbox}[2][]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#2,#1}
+\declaretheoremstyle[headfont=\color{blue}\normalfont\bfseries,]{colored}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{prob}{Problem}
+\newtheorem*{exer}{Exercise}
+\newtheorem*{prop}{Proposition}
+\def\R{\mathbb{R}}
+\def\F{\mathbb{F}}
+\def\Q{\mathbb{Q}}
+\def\C{\mathbb{C}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Ra{\Rightarrow}
+\def\e{\epsilon}
+\newcommand{\typo}[1]{{\color{red}{#1}}}
+\newcommand\thedate{\today}
+\newcommand{\mb}{\textbf}
+\newcommand{\norm}[2]{\|{#1}\|_{#2}}
+\newcommand{\normm}[1]{\|#1\|}
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\eqtext}[1]{\hspace{3mm} \text{#1} \hspace{3mm}}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\inte}{\textrm{int}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\minv}{^{-1}}
+\newcommand{\tx}[1]{\text{ {#1} }}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\uniflim}{\mathop{\mathrm{unif\lim}}}
+\newcommand{\notimplies}{\mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Title of the Document}
+\fancyhead[C]{}
+\fancyhead[R]{\thepage}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\numberwithin{equation}{section}
+% Increase spacing between paragraphs
+\setlength{\parskip}{1em}
+% Increase spacing before and after sections
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{3ex plus 1ex minus .2ex}{2ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{1ex plus 1ex minus .2ex}{1ex plus .2ex}
+\title{\textbf{Title of the Document}}
+\author{Author Name}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Exercises}
+\begin{enumerate}
+    \item[2.1.] Let \((X, d)\) be a metric space and \(S \subset X\). Show that \(0 < \partial S \subseteq \emptyset\).
+    \item[2.2.] Show that for an arbitrary choice of \(a, b, r > 0\), the closed disk \( E = \{ (x, y) : (x - a)^2 + (y - b)^2 \leq r^2\} \) is a bounded set in \(\mathbb{R}^2\).
+    \item[2.3.] Let \((X, d)\) be a metric space and \(f: X \to \mathbb{R}\). Show that if \(d(x, y) \to 0\) for every \(\epsilon > 0\), then \(x = y\).
+\end{enumerate}
+
+\begin{enumerate}
+    \item[2.1.]
+    \begin{proof}
+        Assume for contradiction that there exists an \(x \in S_{\text{int}}\) such that \(x \in \partial S \neq \emptyset\).
+        Then by \(x \in \partial S_{\text{int}}\), there exists \(\epsilon > 0\) such that \(B_{\epsilon}(x) \subseteq S\).
+        However, by \(x \notin S\), this value of \(\epsilon\) implies that \(B_{\epsilon}(x) \cap S = \emptyset \implies B_{\epsilon}(x) \nsubseteq S\) which is a contradiction, implying our assumption that \( x \in S \cap \partial S_{\text{int}} \) must be false, and \( \partial S \cap S_{\text{int}} = \emptyset \).
+    \end{proof}
+
+    \item[2.2.]
+    A set \( S \) is bounded if, and only if, there exists an \( M \in \mathbb{R}^+ \) such that \(\forall x,y \in S: d(x,y) \leq M\).
+
+    \begin{proof}
+        Let \(a, b, r \in \mathbb{R}\).
+
+        Define \( E = \{(u, v) \in \mathbb{R}^2 \mid (x-a)^2 + (y-b)^2 \leq r^2\} \).
+
+        $
+        \begin{aligned}
+            &\implies x^2 - 2ax + a^2 + y^2 - 2yb + b^2 \leq r^2\\
+            &\implies x^2 - 2ax + y^2 - 2yb \leq r^2 - a^2 - b^2
+        \end{aligned}
+        $
+
+        $
+        \implies x^2 + y^2 \leq r^2 - a^2 - b^2 + 2ax + 2yb
+        $
+
+        We need to show \(x^2\) is bounded:
+        $
+        \begin{aligned}
+            &(x-a)^2 \leq r^2\\
+            &\implies |x - a| \leq |r|\\
+            &\implies |x - a| \leq |r| \quad \text{by triangle inequality, } |x - a| \leq |x| + |a|\\
+            &\implies |x| = |x-a+a| \leq |x - a| + |a| \leq r + |a|
+        \end{aligned}
+        $
+
+        $
+        \begin{aligned}
+            &\implies | \{ x : (x - a)^2 \leq r^2\} | \leq \{y \leq r + |a|\}
+        \end{aligned}
+        $
+
+        As such, \( x^2\) is bounded.
+    \end{proof}
+
+\end{enumerate}
+
+\begin{align*}
+& \Rightarrow |y| \leq r + |a| \\
+& \Rightarrow x^2 \leq (r + |a|)^2 \\
+& \text{Same for } y, y^2 \leq (r + |b|)^2 \\
+& \forall z = (x, y) \in D^2_{a,b} \\
+& \| z \| = \sqrt{x^2 + y^2} \\
+& \leq \sqrt{(r + |a|)^2 + (r + |b|)^2}
+\end{align*}
+
+Thus if 
+$
+M = \sqrt{(r + |a|)^2 + (r + |b|)^2}
+$
+the band holds.
+
+\#15 Named boundness = distance boundness.
+
+Let $x = (x_1, x_2)$, $y = (y_1, y_2) \in D_{a,b}$
+
+$z_1 \in \{ x, y \}$
+\begin{align*}
+& (z_1 - a)^2 + (z_2 - b)^2 = r^2 \\
+& \Rightarrow d(z_1, (a,b)) = \sqrt{(x_1 - a)^2 + (x_2 - b)^2} \leq r \\
+& \Rightarrow d(x,y) \leq d(x,(a,b)) + d(y, (a,b)) \\
+& = \sqrt{(x_1 - a)^2 + (x_2 - b)^2} + \sqrt{(y_1 - a)^2 + (y_2 - b)^2} \\
+& \leq r + r = 2r.
+\end{align*}
+
+\begin{itemize}
+    \item[(iii)] Suppose that $x \neq y.$ Then $d(x,y) \neq 0.$ Thus if we choose $\varepsilon = d(x,y) \Rightarrow \varepsilon > 0$ but $d(x,y) \notin \varepsilon \mathbb{N}_1$. (contradiction).
+    \item[(contradiction)] Suppose $x \neq y$ and so $d(x,y) \neq 0.$ Choose $\varepsilon > 0$ such that $\varepsilon = d(x,y).$ Then we must have
+    $
+    d(x,y) < \varepsilon = \frac{d}{2}, 
+    $
+    which is a contradiction, as this implies $d(x,y) = 0.$ if $d(x,y) > 0 \Rightarrow d(x,y) = \varepsilon < \varepsilon = \frac{d}{2} \rightarrow \varepsilon > \frac{d}{2} \Rightarrow \frac{d}{2}< \frac{\varepsilon}{2} \Rightarrow 2 \frac{s}{3f}< \varepsilon$. Thus $x =y.$
+
+    \item[(iv)] Let $(V,|| ||)$ be a normed vsp.
+
+    Then let $r > 0$ and $x \in V.$ Then
+    $
+    B_{r}(x) = \{ x \in V | d(x,y) < r \} 
+    $
+    $
+    B_{r + || ||}(0)=\{ x \in V| d(x,y) < r + || x || \}
+    $
+
+    \begin{center}
+        \includegraphics[scale=0.6]{circle.png}
+    \end{center}
+
+    Let $y \in B_{r}(x).$ 
+    $
+    d(0,y) \leq d(0,x)+d(x,y)
+    $
+    $
+    \leq || x || + r
+    $
+
+    $
+    \Rightarrow B_{r}(x) \subseteq B_{r + || ||}(0).
+    $
+
+    \item[(v)] Suppose $\mathbb{S}$ is bounded. Then $\exists M \epsilon R: \forall x \epsilon \mathbb{S} || x || \leq M.$
+
+    (Equal to $\exists M \epsilon R: \forall x \epsilon \mathbb{V} x \epsilon B_{m}(0)$
+\end{itemize}\end{document}

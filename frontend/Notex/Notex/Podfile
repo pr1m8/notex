@@ -1,0 +1,10 @@
+platform :ios, '17.5'
+use_frameworks!
+
+target 'Notex' do
+  pod 'Firebase'
+  pod 'FirebaseCore'
+  pod 'GoogleSignIn'
+  pod 'FirebaseStorage'
+  pod 'FirebaseAuth'
+end

@@ -1,0 +1,690 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BEADF3312C26E0FF00D872D3 /* NotexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3302C26E0FF00D872D3 /* NotexApp.swift */; };
+		BEADF3352C26E10300D872D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEADF3342C26E10300D872D3 /* Assets.xcassets */; };
+		BEADF3382C26E10300D872D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEADF3372C26E10300D872D3 /* Preview Assets.xcassets */; };
+		BEADF3422C26E10300D872D3 /* NotexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3412C26E10300D872D3 /* NotexTests.swift */; };
+		BEADF34C2C26E10300D872D3 /* NotexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF34B2C26E10300D872D3 /* NotexUITests.swift */; };
+		BEADF34E2C26E10300D872D3 /* NotexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF34D2C26E10300D872D3 /* NotexUITestsLaunchTests.swift */; };
+		BEADF3622C26E23B00D872D3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3612C26E23B00D872D3 /* Colors.swift */; };
+		BEADF3642C26E28100D872D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3632C26E28100D872D3 /* ContentView.swift */; };
+		BEADF3672C26E2DA00D872D3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3662C26E2DA00D872D3 /* Button.swift */; };
+		BEADF3692C26E2EE00D872D3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3682C26E2EE00D872D3 /* LoadingView.swift */; };
+		BEADF36B2C26E30900D872D3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF36A2C26E30900D872D3 /* NetworkManager.swift */; };
+		BEADF36D2C26E32500D872D3 /* ProjectListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF36C2C26E32500D872D3 /* ProjectListView.swift */; };
+		BEADF36F2C26E38100D872D3 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF36E2C26E38100D872D3 /* DocumentPickerView.swift */; };
+		BEADF3712C26E3C200D872D3 /* ProjectDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3702C26E3C200D872D3 /* ProjectDetailView.swift */; };
+		BEADF3732C26E3F900D872D3 /* PDFKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3722C26E3F900D872D3 /* PDFKitView.swift */; };
+		BEADF3752C26E45000D872D3 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3742C26E45000D872D3 /* Project.swift */; };
+		BEADF3772C26E47200D872D3 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3762C26E47200D872D3 /* ProjectViewModel.swift */; };
+		BEADF3C52C27312900D872D3 /* ExportDocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEADF3C42C27312800D872D3 /* ExportDocumentPickerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEADF33E2C26E10300D872D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEADF3252C26E0FF00D872D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEADF32C2C26E0FF00D872D3;
+			remoteInfo = Notex;
+		};
+		BEADF3482C26E10300D872D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEADF3252C26E0FF00D872D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEADF32C2C26E0FF00D872D3;
+			remoteInfo = Notex;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BEADF32D2C26E0FF00D872D3 /* Notex_V0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notex_V0.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEADF3302C26E0FF00D872D3 /* NotexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotexApp.swift; sourceTree = "<group>"; };
+		BEADF3342C26E10300D872D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEADF3372C26E10300D872D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BEADF33D2C26E10300D872D3 /* Notex_V0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Notex_V0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEADF3412C26E10300D872D3 /* NotexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotexTests.swift; sourceTree = "<group>"; };
+		BEADF3472C26E10300D872D3 /* Notex_V0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Notex_V0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEADF34B2C26E10300D872D3 /* NotexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotexUITests.swift; sourceTree = "<group>"; };
+		BEADF34D2C26E10300D872D3 /* NotexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotexUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BEADF3612C26E23B00D872D3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BEADF3632C26E28100D872D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BEADF3662C26E2DA00D872D3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		BEADF3682C26E2EE00D872D3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		BEADF36A2C26E30900D872D3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BEADF36C2C26E32500D872D3 /* ProjectListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListView.swift; sourceTree = "<group>"; };
+		BEADF36E2C26E38100D872D3 /* DocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
+		BEADF3702C26E3C200D872D3 /* ProjectDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailView.swift; sourceTree = "<group>"; };
+		BEADF3722C26E3F900D872D3 /* PDFKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitView.swift; sourceTree = "<group>"; };
+		BEADF3742C26E45000D872D3 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		BEADF3762C26E47200D872D3 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		BEADF3C42C27312800D872D3 /* ExportDocumentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportDocumentPickerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEADF32A2C26E0FF00D872D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEADF33A2C26E10300D872D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEADF3442C26E10300D872D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BEADF3242C26E0FF00D872D3 = {
+			isa = PBXGroup;
+			children = (
+				BEADF32F2C26E0FF00D872D3 /* Notex */,
+				BEADF3402C26E10300D872D3 /* NotexTests */,
+				BEADF34A2C26E10300D872D3 /* NotexUITests */,
+				BEADF32E2C26E0FF00D872D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BEADF32E2C26E0FF00D872D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF32D2C26E0FF00D872D3 /* Notex_V0.app */,
+				BEADF33D2C26E10300D872D3 /* Notex_V0Tests.xctest */,
+				BEADF3472C26E10300D872D3 /* Notex_V0UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEADF32F2C26E0FF00D872D3 /* Notex */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF3602C26E22000D872D3 /* Models */,
+				BEADF35F2C26E21300D872D3 /* Utilities */,
+				BEADF35E2C26E20D00D872D3 /* Services */,
+				BEADF35D2C26E1FF00D872D3 /* Resources */,
+				BEADF35C2C26E1F700D872D3 /* ViewModels */,
+				BEADF35B2C26E1F100D872D3 /* Views */,
+				BEADF35A2C26E1EB00D872D3 /* Apps */,
+				BEADF3342C26E10300D872D3 /* Assets.xcassets */,
+				BEADF3362C26E10300D872D3 /* Preview Content */,
+			);
+			path = Notex;
+			sourceTree = "<group>";
+		};
+		BEADF3362C26E10300D872D3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF3372C26E10300D872D3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BEADF3402C26E10300D872D3 /* NotexTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF3412C26E10300D872D3 /* NotexTests.swift */,
+			);
+			path = NotexTests;
+			sourceTree = "<group>";
+		};
+		BEADF34A2C26E10300D872D3 /* NotexUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF34B2C26E10300D872D3 /* NotexUITests.swift */,
+				BEADF34D2C26E10300D872D3 /* NotexUITestsLaunchTests.swift */,
+			);
+			path = NotexUITests;
+			sourceTree = "<group>";
+		};
+		BEADF35A2C26E1EB00D872D3 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF3302C26E0FF00D872D3 /* NotexApp.swift */,
+			);
+			path = Apps;
+			sourceTree = "<group>";
+		};
+		BEADF35B2C26E1F100D872D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF3652C26E29900D872D3 /* Components */,
+				BEADF3632C26E28100D872D3 /* ContentView.swift */,
+				BEADF36C2C26E32500D872D3 /* ProjectListView.swift */,
+				BEADF36E2C26E38100D872D3 /* DocumentPickerView.swift */,
+				BEADF3702C26E3C200D872D3 /* ProjectDetailView.swift */,
+				BEADF3722C26E3F900D872D3 /* PDFKitView.swift */,
+				BEADF3C42C27312800D872D3 /* ExportDocumentPickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BEADF35C2C26E1F700D872D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF3762C26E47200D872D3 /* ProjectViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BEADF35D2C26E1FF00D872D3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BEADF35E2C26E20D00D872D3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF36A2C26E30900D872D3 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BEADF35F2C26E21300D872D3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF3612C26E23B00D872D3 /* Colors.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BEADF3602C26E22000D872D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF3742C26E45000D872D3 /* Project.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BEADF3652C26E29900D872D3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BEADF3662C26E2DA00D872D3 /* Button.swift */,
+				BEADF3682C26E2EE00D872D3 /* LoadingView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEADF32C2C26E0FF00D872D3 /* Notex_V0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEADF3512C26E10300D872D3 /* Build configuration list for PBXNativeTarget "Notex_V0" */;
+			buildPhases = (
+				BEADF3292C26E0FF00D872D3 /* Sources */,
+				BEADF32A2C26E0FF00D872D3 /* Frameworks */,
+				BEADF32B2C26E0FF00D872D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Notex_V0;
+			productName = Notex;
+			productReference = BEADF32D2C26E0FF00D872D3 /* Notex_V0.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEADF33C2C26E10300D872D3 /* Notex_V0Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEADF3542C26E10300D872D3 /* Build configuration list for PBXNativeTarget "Notex_V0Tests" */;
+			buildPhases = (
+				BEADF3392C26E10300D872D3 /* Sources */,
+				BEADF33A2C26E10300D872D3 /* Frameworks */,
+				BEADF33B2C26E10300D872D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEADF33F2C26E10300D872D3 /* PBXTargetDependency */,
+			);
+			name = Notex_V0Tests;
+			productName = NotexTests;
+			productReference = BEADF33D2C26E10300D872D3 /* Notex_V0Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BEADF3462C26E10300D872D3 /* Notex_V0UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEADF3572C26E10300D872D3 /* Build configuration list for PBXNativeTarget "Notex_V0UITests" */;
+			buildPhases = (
+				BEADF3432C26E10300D872D3 /* Sources */,
+				BEADF3442C26E10300D872D3 /* Frameworks */,
+				BEADF3452C26E10300D872D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEADF3492C26E10300D872D3 /* PBXTargetDependency */,
+			);
+			name = Notex_V0UITests;
+			productName = NotexUITests;
+			productReference = BEADF3472C26E10300D872D3 /* Notex_V0UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEADF3252C26E0FF00D872D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					BEADF32C2C26E0FF00D872D3 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					BEADF33C2C26E10300D872D3 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = BEADF32C2C26E0FF00D872D3;
+					};
+					BEADF3462C26E10300D872D3 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = BEADF32C2C26E0FF00D872D3;
+					};
+				};
+			};
+			buildConfigurationList = BEADF3282C26E0FF00D872D3 /* Build configuration list for PBXProject "Notex_V0" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEADF3242C26E0FF00D872D3;
+			productRefGroup = BEADF32E2C26E0FF00D872D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEADF32C2C26E0FF00D872D3 /* Notex_V0 */,
+				BEADF33C2C26E10300D872D3 /* Notex_V0Tests */,
+				BEADF3462C26E10300D872D3 /* Notex_V0UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEADF32B2C26E0FF00D872D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEADF3382C26E10300D872D3 /* Preview Assets.xcassets in Resources */,
+				BEADF3352C26E10300D872D3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEADF33B2C26E10300D872D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEADF3452C26E10300D872D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEADF3292C26E0FF00D872D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEADF3672C26E2DA00D872D3 /* Button.swift in Sources */,
+				BEADF3772C26E47200D872D3 /* ProjectViewModel.swift in Sources */,
+				BEADF3622C26E23B00D872D3 /* Colors.swift in Sources */,
+				BEADF36B2C26E30900D872D3 /* NetworkManager.swift in Sources */,
+				BEADF36F2C26E38100D872D3 /* DocumentPickerView.swift in Sources */,
+				BEADF3642C26E28100D872D3 /* ContentView.swift in Sources */,
+				BEADF3C52C27312900D872D3 /* ExportDocumentPickerView.swift in Sources */,
+				BEADF3312C26E0FF00D872D3 /* NotexApp.swift in Sources */,
+				BEADF3732C26E3F900D872D3 /* PDFKitView.swift in Sources */,
+				BEADF3712C26E3C200D872D3 /* ProjectDetailView.swift in Sources */,
+				BEADF36D2C26E32500D872D3 /* ProjectListView.swift in Sources */,
+				BEADF3692C26E2EE00D872D3 /* LoadingView.swift in Sources */,
+				BEADF3752C26E45000D872D3 /* Project.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEADF3392C26E10300D872D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEADF3422C26E10300D872D3 /* NotexTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEADF3432C26E10300D872D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEADF34C2C26E10300D872D3 /* NotexUITests.swift in Sources */,
+				BEADF34E2C26E10300D872D3 /* NotexUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEADF33F2C26E10300D872D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEADF32C2C26E0FF00D872D3 /* Notex_V0 */;
+			targetProxy = BEADF33E2C26E10300D872D3 /* PBXContainerItemProxy */;
+		};
+		BEADF3492C26E10300D872D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEADF32C2C26E0FF00D872D3 /* Notex_V0 */;
+			targetProxy = BEADF3482C26E10300D872D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BEADF34F2C26E10300D872D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BEADF3502C26E10300D872D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEADF3522C26E10300D872D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Notex/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AWT.Notex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BEADF3532C26E10300D872D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Notex/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AWT.Notex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BEADF3552C26E10300D872D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AWT.NotexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notex_V0.app/Notex_V0";
+			};
+			name = Debug;
+		};
+		BEADF3562C26E10300D872D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AWT.NotexTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notex_V0.app/Notex_V0";
+			};
+			name = Release;
+		};
+		BEADF3582C26E10300D872D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AWT.NotexUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Notex;
+			};
+			name = Debug;
+		};
+		BEADF3592C26E10300D872D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AWT.NotexUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Notex;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEADF3282C26E0FF00D872D3 /* Build configuration list for PBXProject "Notex_V0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEADF34F2C26E10300D872D3 /* Debug */,
+				BEADF3502C26E10300D872D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEADF3512C26E10300D872D3 /* Build configuration list for PBXNativeTarget "Notex_V0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEADF3522C26E10300D872D3 /* Debug */,
+				BEADF3532C26E10300D872D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEADF3542C26E10300D872D3 /* Build configuration list for PBXNativeTarget "Notex_V0Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEADF3552C26E10300D872D3 /* Debug */,
+				BEADF3562C26E10300D872D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEADF3572C26E10300D872D3 /* Build configuration list for PBXNativeTarget "Notex_V0UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEADF3582C26E10300D872D3 /* Debug */,
+				BEADF3592C26E10300D872D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BEADF3252C26E0FF00D872D3 /* Project object */;
+}

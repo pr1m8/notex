@@ -1,0 +1,12 @@
+flask
+pytesseract
+pdf2image
+openai
+python-dotenv
+Pillow
+pyjwt
+cryptography
+Flask-OAuthlib
+tempfile
+uuid
+subprocess

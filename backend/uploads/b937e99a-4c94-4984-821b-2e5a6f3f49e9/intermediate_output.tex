@@ -1,0 +1,186 @@
+
+\documentclass{article}
+\usepackage[headheight=20pt, margin=1.0in, top=1.2in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, thmtools, tcolorbox, array, graphicx, makeidx, cancel, multirow, fancyhdr, xypic, color, nicefrac, rotating, multicol, caption, subcaption, xcolor, tikz, tikz-3dplot, tikz-cd, pgfplots, import, enumitem, calc, booktabs, wrapfig, siunitx, hyperref,float}
+\hypersetup{colorlinks=true,linkcolor=blue}
+\usepackage[all]{xy}
+\usepackage{esint}
+\setlength{\parindent}{0in}
+\sisetup{per-mode = symbol}
+\usetikzlibrary{calc,arrows,svg.path,decorations.markings,patterns,matrix,3d,fit}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=newest}
+\newtcolorbox{mydefbox}[2][]{colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,title=#2,#1}
+\newtcolorbox{mythmbox}[2][]{colback=gray!5!white,colframe=gray!75!black,fonttitle=\bfseries,title=#2,#1}
+\newtcolorbox{myexamplebox}[2][]{colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,title=#2,#1}
+\newtcolorbox{mypropbox}[2][]{colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,title=#2,#1}
+\declaretheoremstyle[headfont=\color{blue}\normalfont\bfseries,]{colored}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{prob}{Problem}
+\newtheorem*{exer}{Exercise}
+\newtheorem*{prop}{Proposition}
+\def\R{\mathbb{R}}
+\def\F{\mathbb{F}}
+\def\Q{\mathbb{Q}}
+\def\C{\mathbb{C}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Ra{\Rightarrow}
+\def\e{\epsilon}
+\newcommand{\typo}[1]{{\color{red}{#1}}}
+\newcommand\thedate{\today}
+\newcommand{\mb}{\textbf}
+\newcommand{\norm}[2]{\|{#1}\|_{#2}}
+\newcommand{\normm}[1]{\|#1\|}
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\eqtext}[1]{\hspace{3mm} \text{#1} \hspace{3mm}}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\inte}{\textrm{int}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\minv}{^{-1}}
+\newcommand{\tx}[1]{\text{ {#1} }}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\uniflim}{\mathop{\mathrm{unif\lim}}}
+\newcommand{\notimplies}{\mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Title of the Document}
+\fancyhead[C]{}
+\fancyhead[R]{\thepage}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\numberwithin{equation}{section}
+% Increase spacing between paragraphs
+\setlength{\parskip}{1em}
+% Increase spacing before and after sections
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{3ex plus 1ex minus .2ex}{2ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{1ex plus 1ex minus .2ex}{1ex plus .2ex}
+\title{\textbf{Title of the Document}}
+\author{Author Name}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Exercises}
+\begin{description}
+    \item[2.1.] Let \((x,d)\) be a metric space and \(S \subseteq X\). Show that \(0<S^{int} = \emptyset\).
+    \item[2.2.] Show that for an arbitrary choice of \(a, b, r \in \mathbb{R}\), the closed disk \(\{x = a^2 + (y - b)^2 \le r^2\}\) is a bounded set in \(\mathbb{R}^2\).
+    \item[2.3.] Let \((x, d)\) be a metric space and for \(x, y, \epsilon \in X\), show that if \(d(x, y) < \epsilon\) for every \(\epsilon > 0\), then \(x = y\).
+
+    \item[(i)] Assume \(S \neq \emptyset\). Then \(\exists x \in S, B_\epsilon (x) \subseteq S^{int}\).
+
+    Then by \(x \in S^{int}\), \(\exists \epsilon > 0, B_\epsilon (x) \subseteq S\).
+
+    However, by \(x \in S^{int}\), this value of \(\epsilon > 0\) implies 
+    $ B_\epsilon (x) \cap S^C = \emptyset \implies B_\epsilon (x) \nsubseteq S $
+    which is a contradiction, 
+    implying our assumption that \( x \in S \cap S^{int} \) must be false and \( S^{int} = \emptyset \).
+
+    \item[(ii)] A set \(S\) is bounded iff $\exists M \in \mathbb{R}^+ 0 \forall x,y \in S d(x,y) \le M$.
+
+    Let \(a, b, r \in \mathbb{R}\).
+
+    \(S := \{ (x,y) \in \mathbb{R}^2 | (x - a)^2 + (y - b)^2 = r^2 \} \)
+
+    $ \implies x^2 - 2ax + a^2 + y^2 - 2yb + b^2 \le r^2 $
+
+    $ \implies x^2 - 2ax + y^2 - 2yb \le r^2 - a^2 - b^2 $
+
+    $ \implies x^2 + y^2 \le r^2 - a^2 - b^2 + 2ax + 2yb $
+
+    need to show \( x^2 \) is bounded.
+
+    $
+    (x - a)^2 \le r^2
+    $
+
+    $
+    \implies |x - a| \le | r |
+    $
+
+    $
+    \implies |x - a| \le |r| + |a|
+    $
+
+    $
+    \implies | x | = | x - a + a | \le | x - a | + |a| \le r + |a|
+    $
+\end{description}
+
+\begin{align*}
+&\Rightarrow |y| \leq r + |a| \\
+&\Rightarrow x^2 \leq (r + |a|)^2
+\end{align*}
+
+\text{Same for } y \; : \; y^2 \leq (r + |b|)^2
+
+\forall z = (x, y) \in D_{a, b}^2 : \\
+\|z\| = \sqrt{x^2 + y^2} \\
+\quad \leq \sqrt{(r + |a|)^2 + (r + |b|)^2}
+
+\text{Thus, if } M = \sqrt{(r + |a|)^2 + (r + |b|)^2}, \text{the band holds.}
+
+\# 1S \text{ normed boundless } = \text{ distance boundless.}
+
+\text{Let } x = (x_1, x_2), \; y = (y_1, y_2) \in D_{a, b} : \\
+z_i \in \{x, y\}^i \\
+(x_i - a)^2 + (y_i - b)^2 = r^2 \\
+\Rightarrow d(z_i, (a, b)) = \sqrt{(x_i - a)^2 + (y_i - b)^2} \leq r \\
+\Rightarrow d(x, y) \leq d(x, (a, b)) + d(y, (a, b)) \\
+= \sqrt{(x_1 - a)^2 + (x_2 - b)^2} + \sqrt{(y_1 - a)^2 + (y_2 - b)^2} \\
+\leq r + r = 2r.
+
+\textbf{(iii)} Suppose that \(x \neq y\). Then \(d(x,y) \neq 0\). Thus if we choose \(\varepsilon = d(x,y) \Rightarrow \varepsilon > 0\) but \(d(x,y) \in \varepsilon\) (contradiction).
+
+\begin{proof}
+\textbf{(Contradiction)} Suppose \(x = y\) and so \(d(x,y) = 0\).
+
+Choose \(\varepsilon > 0\) such that \(\varepsilon = d(x, y)\). Then we must have \(d(x, y) < \varepsilon = \frac{d(x,y)}{2} = \frac{0}{2}\), which is a contradiction, as this implies if \(d(x,y) = 0 \Rightarrow d(x,y) = 0 < \varepsilon = \frac{\varepsilon}{2} \Rightarrow 0 < \frac{\varepsilon}{2} \Rightarrow 2(0) < \varepsilon.\)
+
+Thus \(x = y\).
+\end{proof}
+
+\textbf{(iv)} Let \( ( V , \| \cdot \| ) \) be a normed vsp.
+
+Then let \( r > 0 \) and \( x \in V \). Then 
+$
+B_r (x) = \{ u \in V \mid d ( x, u ) < r \}
+$
+$
+B_{\|\cdot\| + r} (0) = \{ v \in V \mid d (0, v) < r + \| x \| \}
+$
+\begin{center}
+% Diagram description
+\end{center}
+Let \( y \in B_r (x) \).
+$
+d (0,y) \leq d (0,x) + d (x,y)
+$
+$
+\leq \| x \| + r
+$
+$
+\Rightarrow B_r (x) \subseteq B_{\|\cdot\| + r} (0).
+$
+
+\textbf{(v)} Suppose \( S \) is bounded. Then \(\exists M \in \mathbb{R} > 0 \exists v \in S \|v\| \leq M\).
+
+(Equiv to \(\exists M > 0 : \forall x \in V \) and \( x \in B_M (0) \)).\end{document}
