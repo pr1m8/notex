@@ -10,3 +10,4 @@ Flask-OAuthlib
 tempfile
 uuid
 subprocess
+firebase-admin
