@@ -1,6 +1,0 @@
-framework module Pods_Notex {
-  umbrella header "Pods-Notex-umbrella.h"
-
-  export *
-  module * { export * }
-}
