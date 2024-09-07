@@ -7,7 +7,5 @@ Pillow
 pyjwt
 cryptography
 Flask-OAuthlib
-tempfile
 uuid
-subprocess
 firebase-admin

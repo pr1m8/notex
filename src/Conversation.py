@@ -7,20 +7,18 @@ import re
 import cv2
 import numpy as np
 from PIL import Image
-from Client import client
+from src.Client import client
 from tqdm import tqdm
 import logging
 import uuid
 import time
 import requests
 
-from constants import latex_preamble_str, latex_issues_prompt, preamble_instructions, latex_end_str
+from src.constants import latex_preamble_str, latex_issues_prompt, preamble_instructions, latex_end_str, GPT_COST
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-GPT_COST = {"input_token_cost": 5.0, "output_token_cost": 15.0}
 
 class Conversation:
     def __init__(self, session_id: str, output_dir: str) -> None:

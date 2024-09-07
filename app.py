@@ -1,7 +1,7 @@
 from flask import Flask, request, send_file, jsonify
 import os
 import uuid
-from Conversation import *
+from src.Conversation import *
 
 app = Flask(__name__)
 

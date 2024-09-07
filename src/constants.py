@@ -156,3 +156,5 @@ preamble_instructions = (
 
 latex_end_str = r"\end{document}"
 
+
+GPT_COST = {"input_token_cost": 5.0, "output_token_cost": 15.0}
