@@ -31,6 +31,9 @@ class Conversation:
         self.messages: List[Dict] = []
         
     def preprocess_image(self, image_path: str) -> str:
+        processed_dir = os.path.join(self.output_dir, "processed_images")
+        os.makedirs(processed_dir, exist_ok=True)
+
         logger.info(f"Preprocessing image: {image_path}")
         image = cv2.imread(image_path)
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -41,9 +44,12 @@ class Conversation:
         kernel = np.array([[0, -1, 0], [-1,  5, -1], [0, -1, 0]])
         sharpened = cv2.filter2D(denoised, -1, kernel)
         resized = cv2.resize(sharpened, (0, 0), fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
-        preprocessed_image_path = os.path.join(self.images_dir, os.path.basename(image_path).replace(".png", "_preprocessed.png"))
+
+        preprocessed_image_path = os.path.join(processed_dir, os.path.basename(image_path).replace(".png", "_processed.png"))
         cv2.imwrite(preprocessed_image_path, resized)
-        return preprocessed_image_path
+
+    return preprocessed_image_path
+
 
     def prepare_image_context(self, image_paths: List[str], title="Title of the Document", author="Author Name") -> List[Dict]:
         images = [{"type": "image_url", "image_url": {"url": self.encode_image_to_base64(path)}} for path in image_paths]

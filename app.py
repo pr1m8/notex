@@ -6,7 +6,7 @@ from pdf2image import convert_from_path
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = '/tmp/app/uploads'
+UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
