@@ -2,12 +2,13 @@ from flask import Flask, request, send_file, jsonify
 import os
 import uuid
 from src.Conversation import *
+from pdf2image import convert_from_path
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = '/tmp/app/uploads'
 if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def get_project_folder(project_id):
     return os.path.join(UPLOAD_FOLDER, project_id)
@@ -63,6 +64,10 @@ def download_pdf():
         return send_file(pdf_file, as_attachment=True)
     else:
         return jsonify({'error': 'File not found'}), 404
+
+if os.name == 'nt':  # For Windows
+    poppler_path = r"C:\path\to\poppler-xx\bin"
+    os.environ["PATH"] += os.pathsep + poppler_path
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)
