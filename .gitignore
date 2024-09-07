@@ -1,2 +1,3 @@
 # Ignore everything in the uploads directory
 uploads/*
+config.ini
