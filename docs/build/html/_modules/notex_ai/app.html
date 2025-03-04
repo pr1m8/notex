@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>notex.app &mdash; notex 0.1.0 documentation</title>
+  <title>notex_ai.app &mdash; notex 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
@@ -39,15 +39,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">📖 Documentation</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">🚀 API Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../modules.html">notex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">notex_ai</a></li>
 </ul>
 
         </div>
@@ -65,7 +62,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">notex.app</li>
+      <li class="breadcrumb-item active">notex_ai.app</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -74,13 +71,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for notex.app</h1><div class="highlight"><pre>
+  <h1>Source code for notex_ai.app</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">send_file</span><span class="p">,</span> <span class="n">jsonify</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">notex.src.Conversation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Conversation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">notex_ai.src.Conversation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Conversation</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pdf2image</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_from_path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">notex.src.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">latex_preamble_str</span><span class="p">,</span> <span class="n">latex_end_str</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">notex_ai.src.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">latex_preamble_str</span><span class="p">,</span> <span class="n">latex_end_str</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <span class="n">UPLOAD_FOLDER</span> <span class="o">=</span> <span class="s2">&quot;uploads&quot;</span>
@@ -89,7 +86,7 @@
 
 
 <div class="viewcode-block" id="get_project_folder">
-<a class="viewcode-back" href="../../notex.html#notex.app.get_project_folder">[docs]</a>
+<a class="viewcode-back" href="../../notex_ai.html#notex_ai.app.get_project_folder">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_project_folder</span><span class="p">(</span><span class="n">project_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the directory path for a specific project.</span>
 
@@ -104,7 +101,7 @@
 
 
 <div class="viewcode-block" id="get_latest_files">
-<a class="viewcode-back" href="../../notex.html#notex.app.get_latest_files">[docs]</a>
+<a class="viewcode-back" href="../../notex_ai.html#notex_ai.app.get_latest_files">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_latest_files</span><span class="p">(</span><span class="n">project_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieve the latest LaTeX and PDF files for a project.</span>
 
@@ -123,7 +120,7 @@
 
 
 <div class="viewcode-block" id="upload_file">
-<a class="viewcode-back" href="../../notex.html#notex.app.upload_file">[docs]</a>
+<a class="viewcode-back" href="../../notex_ai.html#notex_ai.app.upload_file">[docs]</a>
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/upload&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">upload_file</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Handles file uploads (PDFs or images) and converts them to LaTeX/PDF.</span>
@@ -162,7 +159,7 @@
 
 
 <div class="viewcode-block" id="download_pdf">
-<a class="viewcode-back" href="../../notex.html#notex.app.download_pdf">[docs]</a>
+<a class="viewcode-back" href="../../notex_ai.html#notex_ai.app.download_pdf">[docs]</a>
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/api/download_pdf&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">download_pdf</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Downloads the compiled PDF for a given project.</span>

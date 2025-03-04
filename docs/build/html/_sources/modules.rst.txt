@@ -1,7 +1,7 @@
-notex
-=====
+notex_ai
+========
 
 .. toctree::
    :maxdepth: 4
 
-   notex
+   notex_ai

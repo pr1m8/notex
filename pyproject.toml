@@ -1,5 +1,5 @@
 [project]
-name = "notex"
+name = "notex_ai"
 version = "0.1.0"
 description = "Python package for Notex, utilizing LLMs and computer vision to convert handwritten notes into LaTeX. Provides methods for handling LaTeX compilation errors and managing long context lengths."
 authors = [
