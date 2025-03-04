@@ -1,9 +1,9 @@
 from flask import Flask, request, send_file, jsonify
 import os
 import uuid
-from notex.src.Conversation import Conversation
+from notex_ai.src.Conversation import Conversation
 from pdf2image import convert_from_path
-from notex.src.constants import latex_preamble_str, latex_end_str
+from notex_ai.src.constants import latex_preamble_str, latex_end_str
 app = Flask(__name__)
 
 UPLOAD_FOLDER = "uploads"

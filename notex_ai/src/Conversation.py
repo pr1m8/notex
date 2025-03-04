@@ -13,8 +13,8 @@ from tqdm import tqdm
 from PIL import Image
 from pdf2image import convert_from_path
 from typing import List, Dict
-from notex.config import client
-from notex.src.constants import latex_preamble_str, latex_end_str, GPT_COST
+from notex_ai.config import client
+from notex_ai.src.constants import latex_preamble_str, latex_end_str, GPT_COST
 import uuid
 # Configure logging
 logging.basicConfig(level=logging.INFO)
