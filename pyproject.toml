@@ -1,0 +1,42 @@
+[project]
+name = "notex"
+version = "0.1.0"
+description = "Python package for Notex, utilizing LLMs and computer vision to convert handwritten notes into LaTeX. Provides methods for handling LaTeX compilation errors and managing long context lengths."
+authors = [
+    { name = "pr1m8", email = "william.astley@algebraicwealth.com" }
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "flask>=3.0.0",
+    "pytesseract>=0.3.10",
+    "pdf2image>=1.16.3",
+    "openai>=1.3.5",
+    "python-dotenv>=1.0.0",
+    "pillow>=10.1.0",
+    "pyjwt>=2.8.0",
+    "cryptography>=42.0.2",
+    "flask-oauthlib>=0.9.6",
+    "uuid>=1.30",
+    "opencv-python (>=4.11.0.86,<5.0.0.0)",
+    "numpy (>=2.2.3,<3.0.0)",
+    
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+notex-setup = "scripts.setup:main"
+notex-check = "scripts.setup:check_dependencies"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^8.2.3"
+sphinx-autodoc-typehints = "^3.1.0"
+sphinx-rtd-theme = "^3.0.2"
+sphinx-autobuild = "^2024.10.3"
+

@@ -1,0 +1,35 @@
+notex Documentation
+===================
+
+Welcome to the **notex** documentation!  
+This project converts handwritten notes to LaTeX using OpenAI.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 📖 Documentation
+
+   introduction
+   installation
+   usage
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 🚀 API Reference
+
+   modules
+
+---
+
+Getting Started
+===============
+
+**notex** provides an API for processing handwritten notes and converting them to LaTeX.
+
+📌 **Key Features:**
+- Upload PDFs or images
+- Convert handwriting to LaTeX
+- Fix LaTeX compilation errors
+- Download generated PDFs
+
+💡 **Quick Start**
+1. Install dependencies:

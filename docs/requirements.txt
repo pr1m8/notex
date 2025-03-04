@@ -1,0 +1,25 @@
+# Core Dependencies
+flask
+pytesseract
+pdf2image
+openai
+python-dotenv
+Pillow
+pyjwt
+cryptography
+Flask-OAuthlib
+uuid
+firebase-admin
+
+# Development Tools
+black
+flake8
+pytest
+mypy
+
+# Sphinx Documentation
+sphinx
+sphinx-rtd-theme
+sphinx-autobuild
+sphinx-autodoc-typehints
+sphinx.ext.napoleon
